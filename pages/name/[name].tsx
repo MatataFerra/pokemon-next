@@ -7,6 +7,7 @@ import { Layout } from "../../components/layouts";
 import { PokemonListResponse, Pokemon } from "../../interfaces";
 import { existInFavorites, getPokemonInfo, toggleFavorite } from "../../utils";
 import confetti from "canvas-confetti";
+import { Pokedex } from "../../components/pokedex";
 
 interface PokemonPageByNameProps {
   pokemon: Pokemon;
@@ -100,6 +101,11 @@ const PokemonPageByName: NextPage<PokemonPageByNameProps> = ({ pokemon }) => {
               </Container>
             </Card.Body>
           </Card>
+        </Grid>
+      </Grid.Container>
+      <Grid.Container>
+        <Grid xs={12} sm={12}>
+          <Pokedex />
         </Grid>
       </Grid.Container>
     </Layout>

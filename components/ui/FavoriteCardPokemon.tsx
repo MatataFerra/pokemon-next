@@ -1,6 +1,8 @@
 import { Grid, Card } from "@nextui-org/react";
-import { FC } from "react";
+import { FC, useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import { Pokemon } from "../../interfaces";
+import { pokeApi } from "../../api";
 
 interface FavoritesCardProps {
   pokemonId: number;
@@ -9,8 +11,19 @@ interface FavoritesCardProps {
 export const FavoriteCardPokemon: FC<FavoritesCardProps> = ({ pokemonId }) => {
   const router = useRouter();
 
+  const [pokeName, setPokeName] = useState("");
+
+  useEffect(() => {
+    const fetchData = async (): Promise<string> => {
+      const { data } = await pokeApi.get<Pokemon>(`/pokemon/${pokemonId}`);
+      return data.name;
+    };
+
+    fetchData().then(setPokeName);
+  }, [pokemonId]);
+
   const handleFavouriteClick = () => {
-    router.push(`/pokemon/${pokemonId}`);
+    router.push(`/name/${pokeName}`);
   };
 
   return (

@@ -3,9 +3,8 @@
 $height: 2.7rem;
 
 .container {
-  display: grid;
+  display: flex;
   position: relative;
-  grid-template-columns: 80% 20%;
 }
 
 .first {
@@ -41,7 +40,19 @@ $height: 2.7rem;
 /* Panel */
 
 .screenContainer {
-  padding: 1rem;
+  padding: 0 1rem 0.5rem 1rem;
+}
+
+.cardPanel {
+  background-color: $gray;
+}
+
+.name,
+.type,
+.height,
+.weight {
+  font-family: "Pokefont", cursive;
+  font-size: 12px;
 }
 
 .panel {
@@ -49,13 +60,15 @@ $height: 2.7rem;
   height: 7rem;
   background-color: $gray;
   border-radius: 0.5rem;
+  padding: 0.5rem;
 
   .bright {
     width: 50px;
     height: 40px;
     background-color: $white;
     border-bottom-right-radius: 30px;
-    filter: brightness(0.7) blur(3px) contrast(0.1);
+    filter: brightness(0.7) blur(3px) contrast(0.1) opacity(0.3);
+    position: absolute;
   }
 }
 

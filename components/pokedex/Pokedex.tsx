@@ -1,10 +1,12 @@
-import React from "react";
+import React, { FC } from "react";
 import { Lights } from "./Lights";
 import { PokeScreen } from "./PokeScreen";
 import { Panel } from "./Panel";
 import { RightPanel } from "./RightPanel";
 import { RightScreen } from "./RightScreen";
 import { BackButtons } from "./BackButtons";
+import styles from "./pokedex-right-panel.module.scss";
+import { Pokemon } from "../../interfaces";
 
 const stylesLeftPanel = {
   padding: "0",
@@ -27,17 +29,28 @@ const stylesRightPanel = {
   borderRadius: "10px",
 };
 
-export const Pokedex = () => {
+interface PokedexProps {
+  pokemon: Pokemon;
+  handleFav: () => void;
+  isInFav: boolean;
+}
+
+export const Pokedex: FC<PokedexProps> = ({ pokemon, handleFav, isInFav }) => {
   return (
     <>
       <div style={stylesLeftPanel}>
         <Lights />
-        <PokeScreen />
-        <Panel />
+        <PokeScreen img={pokemon.sprites.front_default} />
+        <Panel handleFav={handleFav} isInFav={isInFav} />
       </div>
-      <div style={stylesRightPanel}>
+      <div style={stylesRightPanel} className={styles.rightContainer}>
         <RightPanel />
-        <RightScreen />
+        <RightScreen
+          name={pokemon.name}
+          height={pokemon.height}
+          weight={pokemon.weight}
+          types={pokemon.types}
+        />
         <BackButtons />
       </div>
     </>

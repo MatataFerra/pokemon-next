@@ -28,8 +28,6 @@ export const BackButtons = () => {
 
       <div className={styles.bottomButton}></div>
       <div className={styles.bottomButton}></div>
-      {/* <div className={styles.bottomButtonsContainer}>
-      </div> */}
     </div>
   );
 };

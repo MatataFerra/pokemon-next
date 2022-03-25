@@ -114,7 +114,6 @@
   justify-content: center;
   width: 60%;
   margin: 0 auto;
-  // height: 12rem;
   padding: 0.5rem;
   background-color: $white;
   border-bottom-left-radius: 25px;
@@ -126,9 +125,21 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 4.2rem 5rem;
   background-color: $green-screen;
   border: $black solid 2px;
+}
+
+.pokemonImage {
+  animation: moveImg 1s infinite forwards;
+}
+
+@keyframes moveImg {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(1px);
+  }
 }
 
 .smallLightContainer {
@@ -230,6 +241,22 @@
   border: $black solid 1px;
   border-radius: 5px;
   padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+
+  transition: background-color 0.1s ease-in;
+
+  &:hover {
+    cursor: pointer;
+    background-color: darken($color: $green, $amount: 15%);
+    box-shadow: inset 1px 1px 1px $black;
+  }
+}
+
+.aFav {
+  font-family: "Pokefont";
+  font-size: 9px;
+  align-self: center;
 }
 
 .crossKeyboard {
@@ -248,6 +275,7 @@
 
 .crossButton {
   @include keyBoard();
+  box-shadow: inset 1px 1px 5px 1px rgb(58, 58, 58);
 }
 
 .crossButtonWhite {

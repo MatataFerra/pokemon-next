@@ -8,6 +8,7 @@ import { PokemonListResponse, Pokemon } from "../../interfaces";
 import { existInFavorites, getPokemonInfo, toggleFavorite } from "../../utils";
 import confetti from "canvas-confetti";
 import { Pokedex } from "../../components/pokedex";
+import global from "./global-name.module.scss";
 
 interface PokemonPageByNameProps {
   pokemon: Pokemon;
@@ -39,9 +40,12 @@ const PokemonPageByName: NextPage<PokemonPageByNameProps> = ({ pokemon }) => {
         <Grid
           xs={12}
           sm={12}
+          md={12}
+          xl={12}
           alignContent="center"
           justify="center"
           style={{ padding: "1rem" }}
+          className={global.container}
         >
           <Pokedex
             pokemon={pokemon}

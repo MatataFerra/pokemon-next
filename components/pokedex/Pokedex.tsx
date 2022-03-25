@@ -6,28 +6,8 @@ import { RightPanel } from "./RightPanel";
 import { RightScreen } from "./RightScreen";
 import { BackButtons } from "./BackButtons";
 import styles from "./pokedex-right-panel.module.scss";
+import global from "./pokedex-global.module.scss";
 import { Pokemon } from "../../interfaces";
-
-const stylesLeftPanel = {
-  padding: "0",
-  margin: "0",
-  width: "25%",
-  height: "33rem",
-  backgroundColor: "#FE0065",
-  border: "3px solid #000",
-  borderRadius: "10px",
-};
-
-const stylesRightPanel = {
-  padding: "0",
-  margin: "0",
-  width: "25%",
-  height: "33rem",
-  backgroundColor: "#FE0065",
-  alignSelf: "flex-end",
-  border: "3px solid #000",
-  borderRadius: "10px",
-};
 
 interface PokedexProps {
   pokemon: Pokemon;
@@ -38,12 +18,12 @@ interface PokedexProps {
 export const Pokedex: FC<PokedexProps> = ({ pokemon, handleFav, isInFav }) => {
   return (
     <>
-      <div style={stylesLeftPanel}>
+      <div className={global.stylesLeftPanel}>
         <Lights />
         <PokeScreen img={pokemon.sprites.front_default} />
         <Panel handleFav={handleFav} isInFav={isInFav} />
       </div>
-      <div style={stylesRightPanel} className={styles.rightContainer}>
+      <div className={global.stylesRightPanel}>
         <RightPanel />
         <RightScreen
           name={pokemon.name}

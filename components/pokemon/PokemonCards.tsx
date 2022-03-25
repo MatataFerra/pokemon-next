@@ -18,7 +18,12 @@ export const PokemonCard: FC<PokemonCardProps> = ({ pokemon }) => {
     <Grid xs={6} sm={3} md={2} xl={1}>
       <Card hoverable clickable onClick={handleClick}>
         <Card.Body css={{ p: 1 }}>
-          <Card.Image src={pokemon.img} width="100%" height={140} />
+          <Card.Image
+            src={pokemon.img}
+            width="100%"
+            height={140}
+            css={{ p: 8 }}
+          />
         </Card.Body>
         <Card.Footer>
           <Row justify="space-between">

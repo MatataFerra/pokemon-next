@@ -18,9 +18,6 @@ export const RightScreen: FC<RightScreenProps> = ({
 }) => {
   return (
     <div className={styles.screenContainer}>
-      {/* <div className={styles.panel}>
-        <div className={styles.bright}></div> */}
-
       <Card className={styles.cardPanel}>
         {types &&
           types.map((type, index) => {
@@ -33,8 +30,8 @@ export const RightScreen: FC<RightScreenProps> = ({
         <Text className={styles.name} transform="capitalize">
           Nombre: {name}
         </Text>
-        <Text className={styles.height}> Altura: {height}</Text>
-        <Text className={styles.weight}> Peso: {weight}</Text>
+        <Text className={styles.height}> Altura: {height} dm.</Text>
+        <Text className={styles.weight}> Peso: {weight} hg. </Text>
       </Card>
       {/* </div> */}
       <div className={styles.buttonsContainer}>

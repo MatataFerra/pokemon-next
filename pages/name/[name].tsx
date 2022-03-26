@@ -66,7 +66,7 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
     paths: pokeNames.map((name) => ({
       params: { name },
     })),
-    fallback: false,
+    fallback: "blocking",
   };
 };
 
@@ -75,10 +75,21 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   const pokemon = await getPokemonInfo(name);
 
+  if (!pokemon) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
   return {
     props: {
       pokemon,
     },
+
+    revalidate: 86400, // Incremental static Regeneration
   };
 };
 
